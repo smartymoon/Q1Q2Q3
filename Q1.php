@@ -24,7 +24,7 @@ function getNumber2(int $n) {
     if (isset($cache[$n])) {
         return $cache[$n];
     } else {
-        $result =  getNumber2($n - 1) + getNumber2($n - 2);
+        $result =  bcadd(getNumber2($n - 1), getNumber2($n - 2));
         $cache[$n] = $result;
         return $result;
     }
@@ -42,3 +42,4 @@ for ($i = 0; $i <= 20; $i++) {
 
 
 var_dump(getNumber(9292));
+var_dump(getNumber2(9292));

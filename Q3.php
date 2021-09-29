@@ -1,5 +1,5 @@
 <?php
-// method one
+// method one, this is bad
 class Monopoly {
 
     private int $ways = 0;
@@ -14,14 +14,15 @@ class Monopoly {
         }
     }
 
-    public function getWays()
+    public function getWays($total)
     {
+        $this->play($total);
         return $this->ways;
     }
 }
 
 
-// method two
+// method two, this is better
 function play($total) {
     // assume we move forward 1 space at first
     $state = [
