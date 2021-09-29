@@ -8,7 +8,7 @@ function getNumber(int $n) {
     $pre = 1;
     for ($i = 2; $i <= $n; $i++) {
         $temp = $pre;
-        $pre = $pre + $prepre;
+        $pre = bcadd($pre, $prepre);
         $prepre = $temp;
     }
     return $pre;
@@ -31,10 +31,14 @@ function getNumber2(int $n) {
 }
 
 
+/*
 for ($i = 0; $i <= 20; $i++) {
     print_r('------------------------------' . "\n");
     print_r('when number is ' . $i . "\n");
     print_r('by method one, we got '. getNumber($i) . "\n");
     print_r('by method two, we got '. getNumber2($i) . "\n");
 }
+*/
 
+
+var_dump(getNumber(9292));
