@@ -41,7 +41,10 @@ function play($total) {
             }
             $state[$space] += 1;
         } else {
-            $newTotal = array_sum($state);
+            $newTotal = 0;
+            foreach($state as $toAdd) {
+                $newTotal = bcadd($newTotal, $toAdd);
+            }
             $state[1] = $state[2];
             $state[2] = $state[3];
             $state[3] = $state[4];
@@ -57,6 +60,7 @@ function play($total) {
     }
 }
 
+/*
 for ($i=1;$i<15;$i++) {
     print_r('when destination is ' . $i . "\n");
     $board = new Monopoly;
@@ -65,3 +69,6 @@ for ($i=1;$i<15;$i++) {
     print_r('by method two, we got '.  play($i) . "\n");
     print_r("--------------\n");
 }
+*/
+
+var_dump(play(610));
